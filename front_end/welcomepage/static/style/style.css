@@ -1,0 +1,82 @@
+:root {
+    --chatea-beige: #FEFAE0;
+    --chatea-lime: #E9EDC9;
+    --chatea-button-green: #CCD5AE;
+    --chatea-dark-green: #386150;
+}
+
+* {
+    font-family: Lato;
+}
+
+html,body {
+    height: 100%;
+}
+
+.beige {
+    background-color: var(--chatea-beige);
+}
+
+.content {
+    background-color: var(--chatea-lime);
+}
+
+.sidebar {
+    background-color: var(--chatea-beige);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.filters {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.profile {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.picture img {
+    width: 100%;
+    max-width: 233px;
+    max-height: 233px;
+}
+
+.name, .location, .description {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.location {
+    font-size: 19px;
+}
+
+.description {
+    font-size: 18px;
+}
+
+.green_button {
+    background-color: var(--chatea-button-green);
+    padding: 4px 8px 4px;
+}
+
+.badge, .badge-pill {
+    border: solid black 1px;
+    color: black;
+    background-color: white;
+}
+
+.section {
+    color: var(--chatea-dark-green);
+    font-weight: bolder;
+    font-size: 28px;
+}
