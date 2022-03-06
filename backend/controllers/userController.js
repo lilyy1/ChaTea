@@ -39,6 +39,7 @@ const registerUser = asyncHandler( async (req,res) => {
             _id: user.id,
             name: user.name,
             email:user.email,
+            identity: user.identity,
             token: generateToken(user._id)
         }) 
     } else {
@@ -47,12 +48,32 @@ const registerUser = asyncHandler( async (req,res) => {
     }
 })
 
+// Generate JWT
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
+
 // @desc Authenticate User
 // Aroute POST /api/users/login
 // @access Public
-const loginUser = (req, res) => {
-    res.json({message: "login user"})
-}
+const loginUser = asyncHandler ( async (req, res) => {
+    const user = await User.findOne({ email })
+
+    if(user && (await bcrypt.compare(password, user.password))){
+        res.json({
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+            token: generateToken(user._id)
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid login')
+    }
+
+})
 
 // @desc get user data
 // Aroute GET /api/users/me
